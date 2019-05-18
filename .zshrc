@@ -10,6 +10,7 @@ alias gc='git clone'
 alias gp='git push'
 alias gpf='git push --force'
 alias gco='git checkout'
+alias gfm='git fetch && git merge'
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt hist_ignore_all_dups
