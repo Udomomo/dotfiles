@@ -25,6 +25,15 @@ fpath+=($fpath "${HOME}/.nodebrew/node/v6.11.4/lib/node_modules/pure-prompt/func
 autoload -U promptinit; promptinit
 prompt pure
 
+# pecoでctrl+Rで履歴検索できるようにする
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
 # ls時にもsolarizedカラースキームを適用する(GNU版glsを使う)
 eval `/usr/local/opt/coreutils/libexec/gnubin/dircolors ~/.dircolors-solarized/dircolors.ansi-dark`
 alias ls='gls --color=auto'
