@@ -1,16 +1,23 @@
-export PATH="$HOME/.pyenv/shims:$HOME/.nodebrew/current/bin:$HOME/node_modules/typescript/bin:/usr/local/opt/go/libexec/bin:$GOPATH/bin:$PATH"
-export GOPATH="$HOME/go"
+export PATH="$HOME/.pyenv/shims:/usr/local/Cellar/vim/8.0.1250/bin:/usr/local/opt/git/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Android/sdk/platform-tools:./node_modules/.bin:/usr/local/opt/gettext/bin:$PATH"
+export NODE_PATH=$(npm root -g)
+
+# Cassandra起動用にJavaバージョンを1.8にしておく
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_131`
 
 bindkey -e
 autoload -Uz compinit; compinit
 setopt auto_cd
+
+# エイリアス
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias gc='git clone'
+alias gco='git checkout'
 alias gp='git push'
 alias gpf='git push --force'
-alias gco='git checkout'
+alias gl='git log'
 alias gfm='git fetch && git merge'
+alias gr='git rebase'
+
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt hist_ignore_all_dups
@@ -20,26 +27,15 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # C-dしたとき/の手前までしか消えないようにする
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-# 起動時にPureを読み込む
-fpath+=($fpath "${HOME}/.nodebrew/node/v6.11.4/lib/node_modules/pure-prompt/functions")
 autoload -U promptinit; promptinit
 prompt pure
-
-# pecoでctrl+Rで履歴検索できるようにする
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
 
 # ls時にもsolarizedカラースキームを適用する(GNU版glsを使う)
 eval `/usr/local/opt/coreutils/libexec/gnubin/dircolors ~/.dircolors-solarized/dircolors.ansi-dark`
 alias ls='gls --color=auto'
 
-# rbenvを自動で読み込む
-eval "$(rbenv init -)"
+#rbenvがあれば自動で読み込む
+type rbenv >/dev/null && eval "$(rbenv init -)"
 
 # cdしたとき自動でlsする
 function chpwd() {
@@ -56,10 +52,22 @@ function mkcd() {
   mkdir -p $1 && cd $1;
 }
 
-# complinit警告を無視する
-autoload -U compinit
-compinit -u
-eval "$(rbenv init -)"
+# command history search by peco
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
+HISTSIZE=1000
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
 
 # hubコマンドをgitコマンドでも使えるようにする
 function git(){hub "$@"}
