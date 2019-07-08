@@ -30,9 +30,8 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 autoload -U promptinit; promptinit
 prompt pure
 
-# ls時にもsolarizedカラースキームを適用する(GNU版glsを使う)
-eval `/usr/local/opt/coreutils/libexec/gnubin/dircolors ~/.dircolors-solarized/dircolors.ansi-dark`
-alias ls='gls --color=auto'
+# ls時にもicebergカラースキームを適用する
+alias ls='ls -G'
 
 #rbenvがあれば自動で読み込む
 type rbenv >/dev/null && eval "$(rbenv init -)"

@@ -1,8 +1,6 @@
-" for solarized
 syntax enable
-let g:solarized_termtrans = 1 
 set background=dark
-colorscheme solarized
+colorscheme iceberg
 
 set tabstop=4
 set shiftwidth=4
