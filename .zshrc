@@ -21,6 +21,7 @@ alias gpf='git push --force'
 alias gl='git log'
 alias gfm='git fetch && git merge'
 alias gr='git rebase'
+alias gg='ghq get'
 
 setopt auto_pushd
 setopt pushd_ignore_dups
