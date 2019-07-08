@@ -1,6 +1,6 @@
-DOTPATH=~/.dotfiles
+DOTPATH=${PWD}
 
-DOTFILES=(.zshrc .tmux.conf .vimrc)
+DOTFILES=(.zshrc .tmux.conf .vimrc Brewfile)
 
 for f in ${DOTFILES[@]}
 do
