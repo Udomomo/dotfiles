@@ -1,8 +1,12 @@
-export PATH="$HOME/.pyenv/shims:/usr/local/Cellar/vim/8.0.1250/bin:/usr/local/opt/git/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Android/sdk/platform-tools:./node_modules/.bin:/usr/local/opt/gettext/bin:$PATH"
+export PATH="$HOME/.pyenv/shims:/usr/local/Cellar/vim/8.0.1250/bin:/usr/local/opt/git/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Android/sdk/platform-tools:./node_modules/.bin:/usr/local/opt/gettext/bin:/usr/local/opt/mysql@5.7/bin:$HOME/apache-cassandra-3.11.4/bin:$PATH"
 export NODE_PATH=$(npm root -g)
 
+# ghqを使うためgoが必要
+export GOPATH=$HOME
+export PATH=$PATH:$GOPATH/bin
+
 # Cassandra起動用にJavaバージョンを1.8にしておく
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_131`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_212`
 
 bindkey -e
 autoload -Uz compinit; compinit
