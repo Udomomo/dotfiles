@@ -13,6 +13,9 @@ autoload -Uz compinit; compinit
 setopt auto_cd
 
 # エイリアス
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias gco='git checkout'
