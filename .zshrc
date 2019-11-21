@@ -12,6 +12,17 @@ bindkey -e
 autoload -Uz compinit; compinit
 setopt auto_cd
 
+# .zsh.dディレクトリ以下の.zshファイルを読み込む
+ZSHHOME="${HOME}/.zsh.d"
+
+if [ -d $ZSHHOME -a -r $ZSHHOME -a \
+     -x $ZSHHOME ]; then
+    for i in $ZSHHOME/*; do
+        [[ ${i##*/} = *.zsh ]] &&
+            [ \( -f $i -o -h $i \) -a -r $i ] && . $i
+    done
+fi
+
 # エイリアス
 alias rm='rm -i'
 alias cp='cp -i'
