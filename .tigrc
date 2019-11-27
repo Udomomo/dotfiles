@@ -28,5 +28,3 @@ bind generic l        scroll-right
 bind generic h        scroll-left
 bind generic <Ctrl-f> move-page-down
 bind generic <Ctrl-b> move-page-up
-bind generic <Ctrl-d> move-half-page-down
-bind generic <Ctrl-u> move-half-page-up
