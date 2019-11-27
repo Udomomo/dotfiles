@@ -1,0 +1,32 @@
+# diff-highlightを有効にすること
+# sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+set diff-highlight = true
+
+# main view の左端にコミットIDを表示する
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+
+# blame view の行数表示をON、intervalを1に
+set blame-view  = date:default author:email-user id:yes,color line-number:yes,interval=1 text
+
+# Pager系の行数表示をON、intervalを1に (default: line-number:no,interval=5)
+set pager-view  = line-number:yes,interval=1 text
+set stage-view  = line-number:yes,interval=1 text
+set log-view    = line-number:yes,interval=1 text
+set blob-view   = line-number:yes,interval=1 text
+set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
+
+# 検索時に大文字小文字を無視する (default: false)
+set ignore-case = true
+
+# utf-8 文字で画面描画する (~でトグル)
+set line-graphics = utf-8
+
+# キーバインド
+bind generic g        move-first-line
+bind generic G        move-last-line
+bind generic l        scroll-right
+bind generic h        scroll-left
+bind generic <Ctrl-f> move-page-down
+bind generic <Ctrl-b> move-page-up
+bind generic <Ctrl-d> move-half-page-down
+bind generic <Ctrl-u> move-half-page-up
