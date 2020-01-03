@@ -1,6 +1,6 @@
 DOTPATH=${PWD}
 
-DOTFILES=(.zshrc .tmux.conf .vimrc .tigrc Brewfile .tigrc)
+DOTFILES=(.zshrc .tmux.conf .vimrc Brewfile .tigrc .gitconfig)
 
 for f in ${DOTFILES[@]}
 do
