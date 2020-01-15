@@ -37,7 +37,8 @@ nnoremap j gj
 nnoremap k gk
 " シンタックスハイライトの有効化
 syntax enable
-
+" カラースキーム
+colorscheme iceberg
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -92,6 +93,5 @@ if dein#load_state('~/.cache/dein')
 endif
 
 filetype plugin indent on
-syntax enable
 
 let g:airline_theme = 'papercolor'
