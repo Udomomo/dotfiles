@@ -1,5 +1,5 @@
 [include]
-  # Create .gitconfig.local on the home directory
+  # Create .gitconfig.local on the home directory and add [user]
   path = .gitconfig.local
 
 [ghq]
