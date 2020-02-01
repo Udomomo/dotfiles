@@ -1,4 +1,5 @@
 tap "homebrew/cask-versions"
+tap "domt4/autoupdate"
 brew "git"
 brew "pyenv"
 brew "pipenv"
