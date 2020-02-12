@@ -1,5 +1,5 @@
 .PHONY: all
-all: git vim tmux
+all: git vim tmux zshrc tigrc homebrew
 
 .PHONY: git
 git:
@@ -22,4 +22,9 @@ zshrc:
 tigrc:
 	ln -snfv ${PWD}/.tigrc ${HOME}
 
+.PHONY: homebrew
+homebrew:
+	ln -snfv ${PWD}/Brewfile ${HOME}
+	brew bundle
+	brew autoupdate --start --cleanup --enable-notification
 
