@@ -1,6 +1,6 @@
-[include]
-  # Create .gitconfig.local on the home directory and add [user]
-  path = .gitconfig.local
+[user]
+  name = Udomomo
+  email = udomomo@gmail.com
 
 [ghq]
   root = ~/src
