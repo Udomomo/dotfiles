@@ -22,13 +22,14 @@ zshrc:
 tigrc:
 	ln -snfv ${PWD}/.tigrc ${HOME}
 
+.PHONY: karabiner
+karabiner:
+	mkdir -p ${HOME}/.config/karabiner
+	ln -snfv ${PWD}/.config/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json
+
 .PHONY: homebrew
 homebrew:
 	ln -snfv ${PWD}/Brewfile ${HOME}
 	brew bundle
 	brew autoupdate --start --cleanup --enable-notification
 
-.PHONY: karabiner
-karabiner:
-	mkdir -p ${HOME}/.config/karabiner
-	ln -snfv ${PWD}/.config/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json
