@@ -12,7 +12,6 @@ set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
 
-
 " 見た目系
 " 行番号を表示
 set number
@@ -67,6 +66,9 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " insertモード系
 " jjでinsertモードを抜ける
 inoremap <silent> jj <ESC>
+" C-h, C-w, C-uを有効にする
+set backspace=indent,eol,start
+
 
 " deinの設定
 if &compatible
