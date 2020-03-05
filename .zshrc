@@ -91,4 +91,4 @@ zle -N peco-src
 bindkey '^G' peco-src
 
 # hubコマンドをgitコマンドでも使えるようにする
-function git(){hub "$@"}
+eval "$(hub alias -s)"
