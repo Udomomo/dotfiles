@@ -62,15 +62,16 @@ set wrapscan
 set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
-"クリップボードを共有する
+" クリップボードを共有する
 set clipboard=unnamed
+" 数値を<C-a> <C-x>で増減させるとき10進数とみなす
+set nrformats=
 
 " insertモード系
 " jjでinsertモードを抜ける
 inoremap <silent> jj <ESC>
 " C-h, C-w, C-uを有効にする
 set backspace=indent,eol,start
-
 
 " deinの設定
 if &compatible
