@@ -48,6 +48,12 @@ set tabstop=2
 " 行頭でのTab文字の表示幅
 set shiftwidth=2
 
+" 移動系
+" 矢印キーを無効にする
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 " 検索系
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
