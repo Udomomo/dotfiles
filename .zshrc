@@ -92,3 +92,7 @@ bindkey '^G' peco-src
 
 # hubコマンドをgitコマンドでも使えるようにする
 eval "$(hub alias -s)"
+
+# kubectlの自動補完を有効にする
+source <(kubectl completion zsh)
+
