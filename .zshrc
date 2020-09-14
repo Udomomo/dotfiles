@@ -90,9 +90,13 @@ function peco-src () {
 zle -N peco-src
 bindkey '^G' peco-src
 
-# hubコマンドをgitコマンドでも使えるようにする
-eval "$(hub alias -s)"
-
 # kubectlの自動補完を有効にする
 source <(kubectl completion zsh)
 
+# zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "modules/history", from:prezto
+zplug "modules/directory", from:prezto
+zplug "modules/osx", from:prezto
