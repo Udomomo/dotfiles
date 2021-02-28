@@ -67,36 +67,23 @@ function mkcd() {
   mkdir -p $1 && cd $1;
 }
 
-# command history search by peco
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
-
 HISTSIZE=1000
 
-# repository search by peco and ghq
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+# repository search by fzf and ghq
+function fzf-src () {
+  local selected_dir=$(ghq list -p | fzf)
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
   zle clear-screen
 }
-zle -N peco-src
-bindkey '^G' peco-src
+zle -N fzf-src
+bindkey '^G' fzf-src
+
+# enable fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # kubectlの自動補完を有効にする
 source <(kubectl completion zsh)
 
-# zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-
-zplug "modules/history", from:prezto
-zplug "modules/directory", from:prezto
-zplug "modules/osx", from:prezto
