@@ -1,5 +1,5 @@
 .PHONY: all
-all: git vim tmux zshrc tigrc homebrew karabiner
+all: homebrew git vim tmux zshrc tigrc karabiner
 
 .PHONY: git
 git:
@@ -27,9 +27,14 @@ karabiner:
 	mkdir -p ${HOME}/.config/karabiner
 	ln -snfv ${PWD}/.config/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json
 
+.PHONY: fzf
+fzf:
+	yes | $(brew --prefix)/opt/fzf/install
+
 .PHONY: homebrew
 homebrew:
 	ln -snfv ${PWD}/Brewfile ${HOME}
 	brew bundle
 	brew autoupdate --start --cleanup --enable-notification
+
 
