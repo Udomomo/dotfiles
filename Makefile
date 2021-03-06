@@ -1,4 +1,4 @@
-.PHONY: all
+PHONY: all
 all: homebrew git vim tmux zshrc tigrc karabiner
 
 .PHONY: git
@@ -30,6 +30,7 @@ karabiner:
 .PHONY: fzf
 fzf:
 	yes | $(brew --prefix)/opt/fzf/install
+	source ~/.zshrc
 
 .PHONY: homebrew
 homebrew:
