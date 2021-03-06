@@ -1,5 +1,5 @@
 " setting
-"文字コードをUFT-8に設定
+"文字コードをUTF-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
 set nobackup
@@ -74,6 +74,12 @@ set clipboard=unnamed
 set nrformats=
 
 " insertモード系
+" 矢印キーを無効にする
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
 " jjでinsertモードを抜ける
 inoremap <silent> jj <ESC>
 " C-h, C-w, C-uを有効にする
