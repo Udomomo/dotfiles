@@ -87,7 +87,7 @@ bindkey '^G' fzf-src
 # command to fork repo
 function gfork () {
   cd $(ghq root)/github.com/Udomomo
-  gh repo fork $1
+  gh repo fork $1 --clone
   repo_name=$(echo $1 | sed -E 's/.*\/([^\/\.]+?)(\.git)?$/\1/')
   cd "$repo_name"
   git remote set-url --push upstream no-push
