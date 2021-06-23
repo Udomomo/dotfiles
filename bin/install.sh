@@ -15,7 +15,7 @@ download() {
   elif is_exists "wget"; then
     wget -O - "$tarball"
   fi | tar -xv
-  if [ -n "$DOTFILE_PATH" ]; then {
+  if [ -d "$DOTFILE_PATH" ]; then {
     mkdir "$DOTFILE_PATH"
   }
   fi
