@@ -15,6 +15,7 @@ download() {
   elif is_exists "wget"; then
     wget -O - "$tarball"
   fi | tar -xv
+  mv -f dotfiles-master "$DOTPATH"
 }
 
 link() {
