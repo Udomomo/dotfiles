@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eu
 
 REMOTE_REPO="https://github.com/Udomomo/dotfiles"
 DOTFILE_PATH="$HOME/.dotfiles"
@@ -15,16 +16,12 @@ download() {
   elif is_exists "wget"; then
     wget -O - "$tarball"
   fi | tar -xv
-  if [ -d "$DOTFILE_PATH" ]; then {
-    mkdir "$DOTFILE_PATH"
-  }
-  fi
-  mv -f dotfiles-master "$DOTPATH"
+  mv -f dotfiles-master "$DOTFILE_PATH"
 }
 
 link() {
   for f in "$DOTFILE_PATH"/.??*; do {
-    if [[ $f != ".git" ]] && [[ $f != ".DS_Store" ]]; then {
+    if [[ $f != ".git" ]] && [[ $f != ".DS_Store" ]] && [[ $f != ".config" ]]; then {
       ln -snfv "$f" "$HOME"
     }
     fi 
