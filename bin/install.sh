@@ -21,7 +21,9 @@ download() {
 
 link() {
   for f in "$DOTFILE_PATH"/.??*; do {
-    if [[ $f != ".git" ]] && [[ $f != ".DS_Store" ]] && [[ $f != ".config" ]]; then {
+    if [[ $f != "$DOTFILE_PATH/.git" ]] \
+    && [[ $f != "$DOTFILE_PATH/.DS_Store" ]] \
+    && [[ $f != "$DOTFILE_PATH/.config" ]]; then {
       ln -snfv "$f" "$HOME"
     }
     fi 
