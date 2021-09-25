@@ -33,6 +33,12 @@ alias gl='git log'
 alias gfm='git fetch && git merge'
 alias gr='git rebase'
 alias gg='ghq get'
+alias gb='git_branch_format | fzf | xargs git checkout'
+alias d='docker'
+alias dc='docker-compose'
+alias dps='docker ps'
+alias dpcs='docker-compose ps'
+alias k='kubectl'
 
 setopt auto_pushd
 setopt pushd_ignore_dups
@@ -51,6 +57,11 @@ alias ls='ls -G'
 
 #rbenvがあれば自動で読み込む
 type rbenv >/dev/null && eval "$(rbenv init -)"
+
+# branch一覧を*なしで出力する
+function git_branch_format() {
+  git branch --format '%(refname:lstrip=2)'
+}
 
 # cdしたとき自動でlsする
 function chpwd() {
