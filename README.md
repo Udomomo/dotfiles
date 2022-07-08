@@ -5,6 +5,10 @@
 curl -L https://dotfiles.udomomo.dev > install.sh
 bash install.sh
 ```
+- `install.sh` does the smallest things to:
+  - deploy the change of dotfiles, without installing all packages again
+  - install homebrew, so that dotfiles work correctly during the setup for a new laptop
+
 
 ## Development
 - Just `git clone` as usual
