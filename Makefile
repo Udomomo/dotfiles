@@ -36,6 +36,4 @@ fzf:
 homebrew:
 	ln -snfv ${PWD}/Brewfile ${HOME}
 	brew bundle
-	brew autoupdate --start --cleanup --enable-notification
-
 
