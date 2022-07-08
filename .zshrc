@@ -1,4 +1,5 @@
 export PATH="$HOME/.pyenv/shims:$HOME/.nodebrew/current/bin:/usr/local/Cellar/vim/8.0.1250/bin:/usr/local/opt/git/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Android/sdk/platform-tools:./node_modules/.bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/gettext/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/mysql@5.7/bin:$HOME/apache-cassandra-3.11.4/bin:$PATH"
+
 export NODE_PATH=$(npm root -g)
 
 # ghqを使うためgoが必要
@@ -49,6 +50,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # C-dしたとき/の手前までしか消えないようにする
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
+# Homebrew経由でインストールしたpureにパスを通す
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
