@@ -3,6 +3,7 @@
   email = udomomo@gmail.com
 
 [ghq]
+  root = ~/dotfiles # for the case when we clone dotfiles repo manually first
   root = ~/src
 
 [pager]
