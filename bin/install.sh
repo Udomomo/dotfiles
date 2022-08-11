@@ -20,10 +20,10 @@ download() {
 }
 
 link() {
-  for f in "$DOTFILE_PATH"/.??*; do {
-    if [[ $f != "$DOTFILE_PATH/.git" ]] \
-    && [[ $f != "$DOTFILE_PATH/.DS_Store" ]] \
-    && [[ $f != "$DOTFILE_PATH/.config" ]]; then {
+  for f in "$1"/.??*; do {
+    if [[ $f != "$1/.git" ]] \
+    && [[ $f != "$1/.DS_Store" ]] \
+    && [[ $f != "$1/.config" ]]; then {
       ln -snfv "$f" "$HOME"
     }
     fi 
@@ -36,9 +36,17 @@ homebrew() {
 }
 
 deploy() {
-  download
-  link
-  homebrew
+  cd `dirname $0`
+  # Skip download if already cloned dotfiles repo via git command
+  if [ -d "../.git" ]; then
+    cd ../
+    link $(pwd)
+    homebrew
+  else
+    download
+    link $DOTFILE_PATH
+    homebrew
+  fi
 }
 
 deploy
