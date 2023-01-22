@@ -1,6 +1,8 @@
 # dotfiles
 
 ## installation     
+If your environment has built-in git command:
+
 ```
 git clone https://github.com/Udomomo/dotfiles.git
 bash dotfiles/bin/install.sh
@@ -17,6 +19,7 @@ bash install.sh
   - deploy the change of dotfiles, without installing all packages again
   - install homebrew, so that dotfiles work correctly during the setup for a new laptop
 
+- After that, you can configure things with `make` command. See `Makefile` for available options.
 
 ## Development
 - Just `git clone` as usual
