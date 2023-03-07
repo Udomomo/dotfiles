@@ -114,3 +114,7 @@ function gfork () {
 # kubectlの自動補完を有効にする
 source <(kubectl completion zsh)
 
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

@@ -9,6 +9,10 @@ git:
 vim:
 	ln -snfv ${PWD}/.vimrc ${HOME}
 	curl -o ${HOME}/.vim/colors/iceberg.vim --create-dirs https://raw.githubusercontent.com/cocopon/iceberg.vim/master/colors/iceberg.vim
+	mkdir -p ${HOME}/.config/nvim/colors
+	ln -snfv ${PWD}/.vimrc ${HOME}/.config/nvim/init.vim
+	cp ${HOME}/.vim/colors/iceberg.vim ${HOME}/.config/nvim/colors
+
 
 .PHONY: tmux
 tmux:
