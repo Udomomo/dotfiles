@@ -1,5 +1,7 @@
 # dotfiles
 
+![dotfiles](https://github.com/Udomomo/dotfiles/actions/workflows/ci.yaml/badge.svg)
+
 ## installation     
 If your environment has built-in git command:
 

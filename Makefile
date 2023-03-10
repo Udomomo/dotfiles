@@ -1,5 +1,8 @@
 PHONY: all
-all: git vim tmux zshrc tigrc karabiner fzf homebrew 
+all: git vim tmux zshrc tigrc karabiner fzf homebrew
+
+PHONY: test
+test: git vim tmux zshrc tigrc karabiner fzf
 
 .PHONY: git
 git:
