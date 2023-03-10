@@ -33,9 +33,15 @@ link() {
 
 homebrew() {
   which brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  eval "$(brew --prefix)"
+  UNAME_MACHINE="$(/usr/bin/uname -m)"
+  if [[ "${UNAME_MACHINE}" == "arm64" ]]
+  then 
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
 }
 
 deploy() {
