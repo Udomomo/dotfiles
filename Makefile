@@ -46,4 +46,3 @@ fzf:
 homebrew:
 	ln -snfv ${PWD}/Brewfile ${HOME}
 	brew bundle
-
