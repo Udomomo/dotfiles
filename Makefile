@@ -36,11 +36,11 @@ karabiner:
 	mkdir -p ${HOME}/.config/karabiner
 	ln -snfv ${PWD}/.config/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json
 
+# Omit `source ~/.zshrc` since this might be executed on bash too
 .PHONY: fzf
 fzf:
 	brew install fzf
 	yes | $(HOMEBREW_PREFIX)/opt/fzf/install
-	source ~/.zshrc
 
 .PHONY: homebrew
 homebrew:
