@@ -36,6 +36,10 @@ colors:
     magenta: '0xFF76FF'
     cyan: '0x5FFDFF'
     white: '0xFEFFFF'
+
+env:
+  TERM: xterm-256color
+
 key_bindings:
   - { key: Right, mods: Alt, chars: "\x1BF" }
   - { key: Left,  mods: Alt, chars: "\x1BB" }

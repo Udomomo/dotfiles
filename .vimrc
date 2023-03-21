@@ -35,6 +35,15 @@ nnoremap j gj
 nnoremap k gk
 " シンタックスハイライトの有効化
 syntax enable
+
+" True Color対応
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+set termguicolors
+
 " カラースキーム
 colorscheme iceberg
 
@@ -88,3 +97,4 @@ set backspace=indent,eol,start
 filetype plugin indent on
 
 let g:airline_theme = 'papercolor'
+
