@@ -25,4 +25,5 @@ bash install.sh
 
 ## Development
 - Just `git clone` as usual
-  - TODO: Prepare some test env or CI
+- CI pipeline just checks install.sh and make tasks without installing package
+
