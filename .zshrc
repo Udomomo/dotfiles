@@ -44,6 +44,7 @@ alias dps='docker ps'
 alias dpcs='docker-compose ps'
 alias k='kubectl'
 alias unixtime='date +%s'
+alias vim='nvim'
 
 setopt auto_pushd
 setopt pushd_ignore_dups
