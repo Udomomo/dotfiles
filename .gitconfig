@@ -2,6 +2,9 @@
   name = Udomomo
   email = udomomo@gmail.com
 
+[core]
+  editor = nvim
+
 [ghq]
   root = ~/dotfiles # for the case when we clone dotfiles repo manually first
   root = ~/src
