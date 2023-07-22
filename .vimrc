@@ -33,8 +33,6 @@ set wildmode=list:longest
 " 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
-" シンタックスハイライトの有効化
-syntax enable
 
 " True Color対応
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
@@ -43,9 +41,6 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 endif
 
 set termguicolors
-
-" カラースキーム
-colorscheme iceberg
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -94,7 +89,47 @@ inoremap <silent> jj <ESC>
 " C-h, C-w, C-uを有効にする
 set backspace=indent,eol,start
 
-filetype plugin indent on
+" deinの設定
+" Ward off unexpected things that your distro might have made, as
+" well as sanely reset options when re-sourcing .vimrc
+set nocompatible
 
-let g:airline_theme = 'papercolor'
+" Set dein base path (required)
+let s:dein_base = '~/.cache/dein/'
+
+" Set dein source path (required)
+let s:dein_src = '~/.cache/dein/repos/github.com/Shougo/dein.vim'
+
+" Set dein runtime path (required)
+execute 'set runtimepath+=' .. s:dein_src
+
+" Call dein initialization (required)
+if dein#load_state(s:dein_base)
+  call dein#begin(s:dein_base)
+
+  call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Attempt to determine the type of a file based on its name and possibly its
+" contents. Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
+filetype indent plugin on
+
+" Enable syntax highlighting
+if has('syntax')
+  syntax on
+endif
+
+" Uncomment if you want to install not-installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"カラースキーム
+colorscheme kanagawa
+
+syntax enable
 
