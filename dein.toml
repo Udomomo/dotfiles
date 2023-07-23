@@ -7,3 +7,6 @@ hook_add = '''
 let g:airline_theme = 'papercolor'
 '''
 
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
