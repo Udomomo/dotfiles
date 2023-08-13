@@ -1,5 +1,5 @@
 " setting
-"文字コードをUTF-8に設定
+" 文字コードをUTF-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
 set nobackup
@@ -127,6 +127,18 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+" CoCの補完設定
+" Enterで決定
+inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
+
+" Tabで次候補、Shift+Tabで前候補
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 "カラースキーム
 colorscheme kanagawa
