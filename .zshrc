@@ -8,6 +8,9 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
 
+# homebrewのauto_updateを止める
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 bindkey -e
 autoload -Uz compinit; compinit
 setopt auto_cd
