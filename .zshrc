@@ -1,5 +1,8 @@
 export PATH="$HOME/.pyenv/shims:$HOME/.nodebrew/current/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/gettext/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
+# zshのコマンドラインで特殊文字を引数として使えるようにする
+setopt nonomatch
+
 # voltaのPATHを通す
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
@@ -36,7 +39,6 @@ alias gco='git checkout'
 alias gp='git push'
 alias gpf='git push --force'
 alias gl='git log'
-#alias gfm='git fetch && git merge'
 alias gpr='git pull --rebase'
 alias gr='git rebase'
 alias gg='ghq get'
@@ -66,9 +68,6 @@ prompt pure
 # ls時にもicebergカラースキームを適用する
 alias ls='ls -G'
 
-#rbenvがあれば自動で読み込む
-type rbenv >/dev/null && eval "$(rbenv init -)"
-
 # branch一覧を*なしで出力する
 function git_branch_format() {
   git branch --format '%(refname:lstrip=2)'
@@ -89,7 +88,11 @@ function mkcd() {
   mkdir -p $1 && cd $1;
 }
 
-HISTSIZE=1000
+# コマンド履歴の最大記録数
+HISTSIZE=10000
+
+# tmuxの別セッションでも履歴を共有する
+setopt share_history
 
 # repository search by fzf and ghq
 function fzf-src () {
@@ -103,6 +106,15 @@ function fzf-src () {
 zle -N fzf-src
 bindkey '^G' fzf-src
 
+# fzf history
+function fzf-select-history() {
+    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
+
 # enable fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -115,10 +127,6 @@ function gfork () {
   git remote set-url --push upstream no-push
 }
 
-# kubectlの自動補完を有効にする
-source <(kubectl completion zsh)
-
-
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
