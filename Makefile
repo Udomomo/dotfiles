@@ -4,7 +4,7 @@ PHONY: all
 all: git vim tmux zshrc tigrc karabiner alacritty fzf homebrew
 
 PHONY: test
-test: git vim tmux zshrc tigrc karabiner alacritty fzf
+test: git vim tmux zshrc tigrc karabiner alacritty
 
 .PHONY: git
 git:
@@ -12,6 +12,7 @@ git:
 
 .PHONY: vim
 vim:
+	mkdir -p ${HOME}/.config/nvim
 	ln -snfv ${PWD}/.vimrc ${HOME}
 	ln -snfv ${PWD}/.vimrc ${HOME}/.config/nvim/init.vim
 	ln -snfv ${PWD}/dein.toml ${HOME}/.config/nvim/dein.toml
