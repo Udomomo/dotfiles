@@ -2,7 +2,7 @@
 set -eu
 
 REMOTE_REPO="https://github.com/Udomomo/dotfiles"
-DOTFILE_PATH="$HOME/.dotfiles"
+DOTFILE_PATH="$HOME/dotfiles"
 
 is_exists() {
   which "$1" >/dev/null 2>&1
@@ -20,15 +20,7 @@ download() {
 }
 
 link() {
-  for f in "$1"/.??*; do {
-    if [[ $f != "$1/.git" ]] \
-    && [[ $f != "$1/.DS_Store" ]] \
-    && [[ $f != "$1/.config" ]]; then {
-      ln -snfv "$f" "$HOME"
-    }
-    fi 
-  }
-  done
+  make link
 }
 
 homebrew() {
@@ -49,11 +41,11 @@ deploy() {
   # Skip download if already cloned dotfiles repo via git command
   if [ -d "../.git" ]; then
     cd ../
-    link $(pwd)
+    link
     homebrew
   else
     download
-    link $DOTFILE_PATH
+    link
     homebrew
   fi
 }
