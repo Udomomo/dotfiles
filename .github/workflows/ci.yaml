@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install
-        run: bash bin/install.sh
+      - name: Init
+        run: bash bin/init.sh
 
