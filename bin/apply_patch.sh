@@ -22,8 +22,8 @@ apply_patch() {
 
   PATCH_FILE_SUFFIX=$(date +%s)
 
-  diff --exclude=.git -urN ${PWD} /tmp/dotfiles-master > /tmp/dotfiles_diff_${PATCH_FILE_SUFFIX}.patch
-  patch -D -u -p3 -d ${PWD} < /tmp/dotfiles_diff_${PATCH_FILE_SUFFIX}.patch 
+  diff --exclude=.git -urN ${PWD} /tmp/dotfiles-master > /tmp/dotfiles_diff_${PATCH_FILE_SUFFIX}.patch || echo "diff has detected"
+  patch -u -p3 -d ${PWD} < /tmp/dotfiles_diff_${PATCH_FILE_SUFFIX}.patch 
 }
 
 link() {
