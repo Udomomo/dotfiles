@@ -20,7 +20,7 @@ patch() {
   cd "$(dirname "$0")"
   cd ../
   
-  diff --exclude=.git -u -r ${PWD} /tmp/dotfiles-master > /tmp/dotfiles_diff.patch
+  diff --exclude=.git -urN ${PWD} /tmp/dotfiles-master > /tmp/dotfiles_diff.patch
   patch -u -p 3 -d ${PWD} < /tmp/dotfiles_diff.patch 
 }
 
