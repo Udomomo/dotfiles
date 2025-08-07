@@ -23,6 +23,13 @@ bash init.sh
 
 - After that, you can configure things with `make` command. See `Makefile` for available options.
 
+## Apply patch
+- If you install dotfiles to the environment without git, use another script to get the update.
+
+```
+bash bin/apply_patch.sh
+```
+
 ## Development
 - Just `git clone` as usual
 - CI pipeline checks `init.sh` without installing package
