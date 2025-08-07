@@ -8,7 +8,7 @@ is_exists() {
   return $?
 }
 
-patch() {
+apply_patch() {
   tarball="$REMOTE_REPO/archive/master.tar.gz"
   if is_exists "curl"; then
     curl -L "$tarball" > /tmp/master.tar.gz
@@ -23,13 +23,13 @@ patch() {
   PATCH_FILE_SUFFIX=$(date +%s)
 
   diff --exclude=.git -urN ${PWD} /tmp/dotfiles-master > /tmp/dotfiles_diff_${PATCH_FILE_SUFFIX}.patch
-  patch -u -p3 -d ${PWD} < /tmp/dotfiles_diff_${PATCH_FILE_SUFFIX}.patch 
+  patch -D -u -p3 -d ${PWD} < /tmp/dotfiles_diff_${PATCH_FILE_SUFFIX}.patch 
 }
 
 link() {
   make link
 }
 
-patch
+apply_patch
 link
 
