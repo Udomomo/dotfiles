@@ -95,7 +95,7 @@ function fzf-src () {
 zle -N fzf-src
 bindkey '^G' fzf-src
 
-# fzf history
+# fzf command history
 function fzf-select-history() {
     BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
     CURSOR=$#BUFFER
@@ -103,6 +103,19 @@ function fzf-select-history() {
 }
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history
+
+# fzf directory history
+function fzf-select-dir-history() {
+  local selected_dir=$(dirs -p | fzf --query "$LBUFFER" --reverse)
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N fzf-select-dir-history
+setopt noflowcontrol
+bindkey '^q' fzf-select-dir-history
 
 # enable fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
