@@ -37,6 +37,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias gco='git checkout'
 alias gp='git push'
+alias gpr='git pull --rebase'
 alias unixtime='date +%s'
 alias vim='nvim'
 
