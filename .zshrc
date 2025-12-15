@@ -133,3 +133,5 @@ function gfork () {
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
+# zoxide (advanced cd) の設定。cdコマンドを置き換える。
+eval "$(zoxide init zsh --cmd cd)"
