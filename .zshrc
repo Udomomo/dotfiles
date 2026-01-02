@@ -84,6 +84,21 @@ HISTSIZE=10000
 # tmuxの別セッションでも履歴を共有する
 setopt share_history
 
+# 特定のコマンドは履歴に記録しない
+export HISTORY_IGNORE="cd|mkcd|pwd|l[sal]|nvim|vim"
+
+# 失敗したコマンドは履歴に残さない
+precmd() {
+    cmd_status=$?
+    if [[ $cmd_status != 0 ]]; then
+      print -sr -- "$cmd"
+      fc -W
+      return 0
+    else 
+      return 1
+    fi
+}
+
 # repository search by fzf and ghq
 function fzf-src () {
   local selected_dir=$(ghq list -p | fzf)
