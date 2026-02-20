@@ -1,5 +1,19 @@
 export PATH="$HOME/.pyenv/shims:$HOME/.nodebrew/current/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/gettext/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
+# .zsh.dディレクトリ以下の.zshファイルを読み込む
+ZSHHOME="${HOME}/.zsh.d"
+
+if [ -d $ZSHHOME -a -r $ZSHHOME -a \
+     -x $ZSHHOME ]; then
+    for i in $ZSHHOME/*; do
+        [[ ${i##*/} = *.zsh ]] &&
+            [ \( -f $i -o -h $i \) -a -r $i ] && . $i
+    done
+fi
+
+# PATHの重複を削除する
+typeset -U PATH
+
 # zshのコマンドラインで特殊文字を引数として使えるようにする
 setopt nonomatch
 
@@ -17,17 +31,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 bindkey -e
 autoload -Uz compinit; compinit
 setopt auto_cd
-
-# .zsh.dディレクトリ以下の.zshファイルを読み込む
-ZSHHOME="${HOME}/.zsh.d"
-
-if [ -d $ZSHHOME -a -r $ZSHHOME -a \
-     -x $ZSHHOME ]; then
-    for i in $ZSHHOME/*; do
-        [[ ${i##*/} = *.zsh ]] &&
-            [ \( -f $i -o -h $i \) -a -r $i ] && . $i
-    done
-fi
 
 # エイリアス
 alias rm='rm -i'
