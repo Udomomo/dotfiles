@@ -4,7 +4,7 @@ PHONY: all
 all: link install
 
 PHONY: link
-link: git vim tmux zshrc tigrc karabiner alacritty wezterm homebrew
+link: git vim tmux zshrc tigrc karabiner wezterm homebrew
 
 .PHONY: git
 git:
@@ -13,7 +13,6 @@ git:
 .PHONY: vim
 vim:
 	mkdir -p ${HOME}/.config/nvim
-	ln -snfv ${PWD}/.vimrc ${HOME}
 	ln -snfv ${PWD}/.vimrc ${HOME}/.config/nvim/init.vim
 	ln -snfv ${PWD}/dein.toml ${HOME}/.config/nvim/dein.toml
 
@@ -33,11 +32,6 @@ tigrc:
 karabiner:
 	mkdir -p ${HOME}/.config/karabiner
 	ln -snfv ${PWD}/.config/karabiner/karabiner.json ${HOME}/.config/karabiner/karabiner.json
-
-.PHONY: alacritty
-alacritty:
-	mkdir -p ${HOME}/.config/alacritty
-	ln -snfv ${PWD}/.config/alacritty/alacritty.yml ${HOME}/.config/alacritty/alacritty.yml
 
 .PHONY: wezterm
 wezterm:
