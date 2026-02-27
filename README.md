@@ -23,6 +23,12 @@ bash init.sh
 
 - After that, you can configure things with `make` command. See `Makefile` for available options.
 
+## environment specific file
+This repository also refers following files, so that you can write settings only used in specific environments.
+
+- `~/.zsh.d/<file_name>.zsh`: used in `~/.zshrc`
+- `~/.gitconfig_private`: used in `.gitconfig`
+
 ## Apply patch
 - If you install dotfiles to the environment without git, use another script to get the update.
 
