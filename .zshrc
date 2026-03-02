@@ -53,12 +53,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # C-dしたとき/の手前までしか消えないようにする
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-# Homebrew経由でインストールしたpureにパスを通す
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-autoload -U promptinit; promptinit
-prompt pure
-
-# ls時にもicebergカラースキームを適用する
+# ls時にもカラースキームを適用する
 alias ls='ls -G'
 
 # branch一覧を*なしで出力する
@@ -153,3 +148,7 @@ source <(ng completion script)
 
 # zoxide (advanced cd) の設定。cdコマンドを置き換える。
 eval "$(zoxide init zsh --cmd cd)"
+
+# starshipの設定
+eval "$(starship init zsh)"
+
