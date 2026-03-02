@@ -6,6 +6,11 @@ local config = wezterm.config_builder()
 config.automatically_reload_config = true
 config.initial_cols = 100
 config.initial_rows = 30
+config.font = wezterm.font_with_fallback({
+  'JetBrains Mono',
+  'ヒラギノ角ゴシック',
+  'Apple Color Emoji',
+})
 config.font_size = 18.0
 config.use_ime = true
 
