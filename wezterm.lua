@@ -69,7 +69,7 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
   end
 end)
 
-config.leader = { key = "j", mods = "CTRL", timeout_milliseconds = 2000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 
 local color_scheme = 'kanagawa (Gogh)'
 config.color_scheme = color_scheme
