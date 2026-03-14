@@ -24,6 +24,9 @@ config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 
+-- ベル音をオフにする
+config.audible_bell = "Disabled"
+
 -- tabのタイトルに現在のディレクトリ名のみ表示
 -- format-tab-titleは速度重視のため内部で同期関数しか呼べず、get_current_working_dir()を呼べないため、pane_idごとにキャッシュしておく
 local dir_cache = {}
