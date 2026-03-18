@@ -152,3 +152,6 @@ eval "$(zoxide init zsh --cmd cd)"
 # starshipの設定
 eval "$(starship init zsh)"
 
+# direnvの設定を検知する
+eval "$(direnv hook zsh)"
+
