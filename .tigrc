@@ -15,6 +15,9 @@ set log-view    = line-number:yes,interval=1 text
 set blob-view   = line-number:yes,interval=1 text
 set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
 
+# 読み込む履歴数に上限を設ける
+set main-options = -n 100
+
 # 検索時に大文字小文字を無視する (default: false)
 set ignore-case = true
 
