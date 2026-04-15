@@ -27,6 +27,25 @@ config.show_close_tab_button_in_tabs = false
 -- ベル音をオフにする
 config.audible_bell = "Disabled"
 
+-- 右のOptionキーをショートカットに利用可能にする
+config.send_composed_key_when_right_alt_is_pressed = false
+
+-- 矢印キーを無効化する
+config.keys = {
+  { key = 'LeftArrow', mods = 'NONE', action = wezterm.action.Nop },
+  { key = 'RightArrow', mods = 'NONE', action = wezterm.action.Nop },
+  { key = 'UpArrow', mods = 'NONE', action = wezterm.action.Nop },
+  { key = 'DownArrow', mods = 'NONE', action = wezterm.action.Nop },
+  { key = 'LeftArrow', mods = 'OPT', action = wezterm.action.Nop },
+  { key = 'RightArrow', mods = 'OPT', action = wezterm.action.Nop },
+  { key = 'UpArrow', mods = 'OPT', action = wezterm.action.Nop },
+  { key = 'DownArrow', mods = 'OPT', action = wezterm.action.Nop },
+  { key = 'LeftArrow', mods = 'CTRL', action = wezterm.action.Nop },
+  { key = 'RightArrow', mods = 'CTRL', action = wezterm.action.Nop },
+  { key = 'UpArrow', mods = 'CTRL', action = wezterm.action.Nop },
+  { key = 'DownArrow', mods = 'CTRL', action = wezterm.action.Nop },
+}
+
 -- tabのタイトルに現在のディレクトリ名のみ表示
 -- format-tab-titleは速度重視のため内部で同期関数しか呼べず、get_current_working_dir()を呼べないため、pane_idごとにキャッシュしておく
 local dir_cache = {}
