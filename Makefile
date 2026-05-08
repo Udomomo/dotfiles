@@ -4,17 +4,11 @@ PHONY: all
 all: link install
 
 PHONY: link
-link: git vim tmux zshrc tigrc karabiner wezterm lazyvim homebrew
+link: git tmux zshrc tigrc karabiner wezterm lazyvim homebrew
 
 .PHONY: git
 git:
 	ln -snfv ${PWD}/.gitconfig ${HOME}
-
-.PHONY: vim
-vim:
-	mkdir -p ${HOME}/.config/nvim
-	ln -snfv ${PWD}/.vimrc ${HOME}/.config/nvim/init.vim
-	ln -snfv ${PWD}/dein.toml ${HOME}/.config/nvim/dein.toml
 
 .PHONY: tmux
 tmux:
