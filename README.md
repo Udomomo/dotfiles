@@ -13,7 +13,7 @@ bash dotfiles/bin/init.sh
 Or if you cannot install git command beforehand:
 
 ```
-curl -L https://raw.githubusercontent.com/Udomomo/dotfiles/refs/heads/master/bin/init.sh > init.sh
+curl -sL https://dotfiles.udomomo.dev > init.sh
 bash init.sh
 ```
 
