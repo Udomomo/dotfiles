@@ -1,0 +1,17 @@
+[settings]
+dotfiles.root = "~/dotfiles"
+dotfiles.default_mode = "symlink"
+
+[dotfiles]
+"~/.zshrc" = {}
+"~/.gitconfig" = {}
+"~/.tigrc" = {}
+"~/.tmux.conf" = {}
+"~/Brewfile" = {}
+"~/.config/wezterm/wezterm.lua" = { source = "wezterm.lua" }
+"~/.config/karabiner" = { source = "karabiner" }
+"~/.config/nvim" = { source = "nvim" }
+
+
+
+
