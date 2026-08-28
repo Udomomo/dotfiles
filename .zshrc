@@ -155,3 +155,4 @@ eval "$(starship init zsh)"
 # direnvの設定を検知する
 eval "$(direnv hook zsh)"
 
+eval "$(~/.local/bin/mise activate zsh)"
