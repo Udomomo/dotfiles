@@ -23,6 +23,13 @@ bash init.sh
 
 - After that, you can configure things with `make` command. See `Makefile` for available options.
 
+### apply by mise (experimental)
+Currently following resources are managed by mise:
+- symlink
+  - `mise bootstrap dotfiles apply`
+  - `mise bootstrap dotfiles apply <target path>` to apply only specific files
+
+
 ## environment specific file
 This repository also refers following files, so that you can write settings only used in specific environments.
 
