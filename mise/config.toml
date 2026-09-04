@@ -3,15 +3,15 @@ dotfiles.root = "~/dotfiles"
 dotfiles.default_mode = "symlink"
 
 [dotfiles]
-"~/.config/mise/config.toml" = { source = "mise.toml" }
+"~/.config/mise/config.toml" = "~/dotfiles/mise/config.toml"
 "~/.zshrc" = {}
 "~/.gitconfig" = {}
 "~/.tigrc" = {}
 "~/.tmux.conf" = {}
 "~/Brewfile" = {}
-"~/.config/wezterm/wezterm.lua" = { source = "wezterm.lua" }
-"~/.config/karabiner" = { source = "karabiner" }
-"~/.config/nvim" = { source = "nvim" }
+"~/.config/wezterm/wezterm.lua" = "~/dotfiles/wezterm.lua"
+"~/.config/karabiner" = "~/dotfiles/karabiner"
+"~/.config/nvim" = "~/dotfiles/nvim"
 
 [env]
 GOPATH = "~"

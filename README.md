@@ -28,6 +28,10 @@ Currently following resources are managed by mise:
 - symlink
   - `mise bootstrap dotfiles apply`
   - `mise bootstrap dotfiles apply <target path>` to apply only specific files
+- envvar
+  - `mise env`
+
+mise file is located at `mise/config.toml`.
 
 
 ## environment specific file
