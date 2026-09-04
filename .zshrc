@@ -1,5 +1,3 @@
-export PATH="$HOME/.pyenv/shims:$HOME/.nodebrew/current/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/gettext/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-
 # .zsh.dディレクトリ以下の.zshファイルを読み込む
 ZSHHOME="${HOME}/.zsh.d"
 
@@ -16,14 +14,6 @@ typeset -U PATH
 
 # zshのコマンドラインで特殊文字を引数として使えるようにする
 setopt nonomatch
-
-# voltaのPATHを通す
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-# ghqを使うためgoが必要
-export GOPATH=$HOME
-export PATH=$PATH:$GOPATH/bin
 
 # homebrewのauto_updateを止める
 export HOMEBREW_NO_AUTO_UPDATE=1

@@ -3,6 +3,7 @@ dotfiles.root = "~/dotfiles"
 dotfiles.default_mode = "symlink"
 
 [dotfiles]
+"~/.config/mise/config.toml" = { source = "mise.toml" }
 "~/.zshrc" = {}
 "~/.gitconfig" = {}
 "~/.tigrc" = {}
@@ -12,6 +13,11 @@ dotfiles.default_mode = "symlink"
 "~/.config/karabiner" = { source = "karabiner" }
 "~/.config/nvim" = { source = "nvim" }
 
-
-
-
+[env]
+GOPATH = "~"
+_.path = [
+  "~/bin",
+  "/opt/homebrew/bin",
+  "/usr/local/sbin",
+  "/usr/local/bin",  
+]
