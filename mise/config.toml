@@ -8,7 +8,6 @@ dotfiles.default_mode = "symlink"
 "~/.gitconfig" = {}
 "~/.tigrc" = {}
 "~/.tmux.conf" = {}
-"~/Brewfile" = {}
 "~/.config/wezterm/wezterm.lua" = "~/dotfiles/wezterm.lua"
 "~/.config/karabiner" = "~/dotfiles/karabiner"
 "~/.config/nvim" = "~/dotfiles/nvim"

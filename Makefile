@@ -32,10 +32,6 @@ wezterm:
 	mkdir -p ${HOME}/.config/wezterm
 	ln -snfv ${PWD}/wezterm.lua ${HOME}/.config/wezterm/wezterm.lua
 
-.PHONY: homebrew
-homebrew:
-	ln -snfv ${PWD}/Brewfile ${HOME}
-
 .PHONY: lazyvim
 lazyvim:
 	mkdir -p ${HOME}/.config/nvim
