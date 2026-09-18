@@ -13,7 +13,7 @@ dotfiles.default_mode = "symlink"
 "~/.config/nvim" = "~/dotfiles/nvim"
 
 [env]
-GOPATH = "~"
+GOPATH = "{{env.HOME}}"
 _.path = [
   "~/bin",
   "/opt/homebrew/bin",
