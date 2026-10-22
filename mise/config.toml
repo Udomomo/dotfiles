@@ -15,6 +15,7 @@ dotfiles.default_mode = "symlink"
 [env]
 GOPATH = "{{env.HOME}}"
 _.path = [
+  "/opt/homebrew/opt/curl/bin",
   "~/bin",
   "/opt/homebrew/bin",
   "/usr/local/sbin",
@@ -39,6 +40,7 @@ _.path = [
 "brew:jq" = "latest"
 "brew:wget" = "latest"
 "brew:go" = "latest"
+"brew:curl" = "latest"
 "brew:pre-commit" = "latest"
 "brew:gradle" = "latest"
 "brew-cask:1password" = "latest"
